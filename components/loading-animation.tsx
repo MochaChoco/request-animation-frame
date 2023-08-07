@@ -1,10 +1,13 @@
 import React, { useEffect, useRef, useState } from "react";
-import { init } from "./loading.js";
+import { init, destroy } from "./loading.js";
 
 export default function LoadingAnimation(props: { animationId: number[] }) {
   useEffect(() => {
     init(props.animationId);
-    return () => {};
+
+    return () => {
+      destroy();
+    };
   }, []);
 
   return (

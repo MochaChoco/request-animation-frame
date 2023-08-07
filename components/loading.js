@@ -6,7 +6,12 @@ var points = [],
   boundaryX = 200,
   boundaryY = 200,
   numberOfPoints = 30,
-  animationId;
+  animationId,
+  isContinue = true;
+
+export function destroy() {
+  isContinue = false;
+}
 
 export function init(id) {
   animationId = id;
@@ -25,6 +30,8 @@ export function init(id) {
       points[i].buddy = points[i - 1];
     }
   }
+
+  isContinue = true;
 
   // animate
   animate();
@@ -100,7 +107,9 @@ function draw() {
 }
 
 function animate() {
-  context.clearRect(0, 0, 200, 200);
-  draw();
-  animationId.push(requestAnimationFrame(animate));
+  if (isContinue) {
+    context.clearRect(0, 0, 200, 200);
+    draw();
+    animationId.push(requestAnimationFrame(animate));
+  }
 }
