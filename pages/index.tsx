@@ -1,17 +1,9 @@
-import LoadingAnimation from "../components/loading-animation";
+import TestAnimation from "../components/test-animation";
 import styles from "../styles/Home.module.css";
 import React, { useState, useRef } from "react";
 
 export default function Home() {
   const [isShow, setIsShow] = useState(false);
-  const animationId = useRef<number[]>([]);
-
-  const freeMemory = () => {
-    console.log("animationId", animationId.current);
-    for (let id in animationId.current) {
-      cancelAnimationFrame(Number(id));
-    }
-  };
 
   return (
     <div className={styles.main}>
@@ -23,12 +15,8 @@ export default function Home() {
         >
           hover mouse
         </div>
-        <button style={style.memoryFreeBtn} onClick={freeMemory}>
-          메모리 해제
-        </button>
-        ;
       </div>
-      {isShow && <LoadingAnimation animationId={animationId.current} />}
+      {isShow && <TestAnimation />}
     </div>
   );
 }

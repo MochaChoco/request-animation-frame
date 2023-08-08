@@ -1,16 +1,20 @@
 var points = [],
   velocity2 = 5, // velocity squared
   radius = 5,
-  canvas,
-  context,
+  canvas = null,
+  context = null,
   boundaryX = 200,
   boundaryY = 200,
   numberOfPoints = 30,
-  animationId,
-  isContinue = true;
+  animationId = null;
 
-export function destroy() {
-  isContinue = false;
+export function destroy(id) {
+  console.log("destroyed!! animation id: ", id.current);
+  cancelAnimationFrame(id.current);
+  points = [];
+  canvas = null;
+  context = null;
+  animationId = null;
 }
 
 export function init(id) {
@@ -30,8 +34,6 @@ export function init(id) {
       points[i].buddy = points[i - 1];
     }
   }
-
-  isContinue = true;
 
   // animate
   animate();
@@ -107,9 +109,8 @@ function draw() {
 }
 
 function animate() {
-  if (isContinue) {
-    context.clearRect(0, 0, 200, 200);
-    draw();
-    animationId.push(requestAnimationFrame(animate));
-  }
+  console.log("animate");
+  context.clearRect(0, 0, 200, 200);
+  draw();
+  animationId.current = requestAnimationFrame(animate);
 }
