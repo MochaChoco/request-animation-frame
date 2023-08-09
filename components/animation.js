@@ -9,12 +9,12 @@ var points = [],
   animationId = null;
 
 export function destroy(id) {
-  console.log("destroyed!! animation id: ", id.current);
+  console.log("animation end // animation id: ", id.current);
   cancelAnimationFrame(id.current);
   points = [];
-  canvas = null;
-  context = null;
-  animationId = null;
+  // canvas = null;
+  // context = null;
+  // animationId = null;
 }
 
 export function init(id) {
@@ -34,6 +34,8 @@ export function init(id) {
       points[i].buddy = points[i - 1];
     }
   }
+
+  console.log("animation start!!");
 
   // animate
   animate();
@@ -109,7 +111,7 @@ function draw() {
 }
 
 function animate() {
-  console.log("animate");
+  console.log("animate...");
   context.clearRect(0, 0, 200, 200);
   draw();
   animationId.current = requestAnimationFrame(animate);
