@@ -1,9 +1,9 @@
 # request-animation-frame
 자바스크립트 내장 함수 requestAnimationFrame의 사용 방법과 유의 사항을 다룬 프로젝트입니다.
 
-# 빌드 명령어
+# 명령어
 - dependency 설치 : yarn install
-- 로컬 빌드 : yarn dev
+- 로컬 실행 : yarn dev
 
 # 테스트 방법
 - hover mouse라는 영역에 mouseEnter하면 애니메이션이 재생되고 mouseLeave하면 애니메이션이 사라지면서 멈추는 구조입니다.
