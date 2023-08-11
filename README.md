@@ -1,34 +1,12 @@
-This is a [Next.js](https://nextjs.org/) project bootstrapped with [`create-next-app`](https://github.com/vercel/next.js/tree/canary/packages/create-next-app).
+# request-animation-frame
+자바스크립트 내장 함수 requestAnimationFrame의 사용 방법과 유의 사항을 다룬 프로젝트입니다.
 
-## Getting Started
+# 빌드 명령어
+- dependency 설치 : yarn install
+- 로컬 빌드 : yarn dev
 
-First, run the development server:
-
-```bash
-npm run dev
-# or
-yarn dev
-```
-
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
-
-You can start editing the page by modifying `pages/index.tsx`. The page auto-updates as you edit the file.
-
-[API routes](https://nextjs.org/docs/api-routes/introduction) can be accessed on [http://localhost:3000/api/hello](http://localhost:3000/api/hello). This endpoint can be edited in `pages/api/hello.ts`.
-
-The `pages/api` directory is mapped to `/api/*`. Files in this directory are treated as [API routes](https://nextjs.org/docs/api-routes/introduction) instead of React pages.
-
-## Learn More
-
-To learn more about Next.js, take a look at the following resources:
-
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
-
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js/) - your feedback and contributions are welcome!
-
-## Deploy on Vercel
-
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
-
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/deployment) for more details.
+# 테스트 방법
+- hover mouse라는 영역에 mouseEnter하면 애니메이션이 재생되고 mouseLeave하면 애니메이션이 사라지면서 멈추는 구조입니다.
+- 마우스를 초반 10초 동안 mouseEnter 상태에서 가만히 두고, 나머지 10초는 mouseLeave 한 상태에서 가만히 두는 식으로 테스트를 진행합니다.
+- /components/animation.js 파일의 destroy 함수 내부에 있는 cancelAnimationFrame 함수를 주석 처리하고 다시 테스트를 진행해봅니다.
+- 여러번 테스트 해보면서 콘솔창에서 cancelAnimationFrame 함수가 있을때와 없을때의 차이점을 확인합니다.
